@@ -1,0 +1,170 @@
+---
+title: "Geoportales y Servicios Web en Colombia"
+author: "Gabriela Caro Leon"
+format:
+  html: default
+  pdf: default
+---
+
+# 6. Geoportales y Servicios Web
+
+## 6.1 Introducción a los Datos Abiertos
+
+En la geomática moderna, el consumo de servicios web permite trabajar con información oficial y actualizada sin necesidad de almacenar grandes volúmenes de datos localmente. Este enfoque favorece la interoperabilidad y la reproducibilidad, alineándose con los principios de ciencia abierta.
+
+Durante la práctica se trabajó con servicios oficiales publicados por entidades colombianas, lo que permitió comprender el funcionamiento básico de los estándares OGC y su integración en QGIS.
+
+---
+
+## 6.2 Formatos de Datos Utilizados
+
+### Formatos Vectoriales
+
+Se trabajó con:
+
+- WFS del DANE.
+- Shapefile descargado para uso local.
+
+Los datos vectoriales permiten:
+
+- Acceder a tabla de atributos.
+- Editar geometrías (según permisos).
+- Realizar análisis espacial.
+- Modificar simbología desde el software cliente.
+
+---
+
+### Formatos Raster
+
+Se abordó el formato GeoTIFF como estándar raster para modelos digitales de elevación.
+
+Características:
+
+- Representa información mediante celdas.
+- Cada píxel contiene un valor numérico.
+- No posee tabla de atributos como los datos vectoriales.
+- Permite análisis continuo del territorio.
+
+---
+
+## 6.3 Estándares OGC
+
+### WMS
+
+Servicio utilizado: Parques Nacionales Naturales de Colombia.
+
+Características:
+
+- Transmite mapas como imágenes.
+- No permite edición.
+- No permite acceder a la tabla de atributos.
+- Se utiliza principalmente para visualización.
+
+---
+
+### WFS
+
+Servicio utilizado: DANE.
+
+Características:
+
+- Entrega geometrías vectoriales reales.
+- Permite abrir la tabla de atributos.
+- Permite modificar simbología.
+- Puede permitir edición si el servidor lo habilita.
+
+---
+
+### WCS
+
+Se intentó establecer conexión con servicios WCS nacionales; sin embargo, en los geoportales consultados únicamente estaban disponibles servicios WMS y WFS. No fue posible encontrar un servicio WCS activo públicamente.
+
+---
+
+## 6.4 Sistemas de Coordenadas
+
+Se trabajó con:
+
+- WGS84 (EPSG:4326).
+- WGS 84 / Pseudo-Mercator (EPSG:3857).
+- MAGNA-SIRGAS Origen Nacional (EPSG:9377).
+
+---
+
+## 6.5 Tabla de Fuentes
+
+| Tipo | Fuente | URL | Sistema de Coordenadas |
+|------|--------|------|-----------------------|
+| WMS | Parques Nacionales Naturales de Colombia | https://mapas.parquesnacionales.gov.co/services/pnn/wms | EPSG:3857 |
+| WFS | DANE | URL usada en QGIS | EPSG:3857 |
+| Shapefile | DANE | .shp descargado | Según propiedades |
+| GeoTIFF | Intento de descarga institucional | No fue posible descargar | - |
+| WCS | No disponible públicamente | - | - |
+
+---
+
+# Cuestionario de Análisis
+
+## ¿Qué archivos/servicios permiten la edición de geometrías directamente?
+
+Permiten edición:
+
+- WFS (si está habilitado).
+- Shapefile.
+- GeoPackage.
+
+No permiten edición:
+
+- WMS.
+- GeoTIFF.
+- WCS.
+
+---
+
+## ¿Cuáles permiten acceso a la tabla de atributos? Describa tres campos.
+
+Permiten acceso a tabla:
+
+- WFS.
+- Shapefile.
+
+Ejemplo del WFS del DANE:
+
+- COD_DANE: Código oficial del municipio.
+- NOM_MPIO: Nombre del municipio.
+- AREA: Área territorial.
+
+---
+
+## ¿En qué casos fue posible cambiar la simbología?
+
+Fue posible cambiar simbología en:
+
+- WFS.
+- Shapefile.
+
+No fue posible cambiar simbología real en:
+
+- WMS, ya que es una imagen renderizada en el servidor.
+
+---
+
+## ¿Por qué es preferible usar un WFS sobre un Shapefile descargado?
+
+El WFS es preferible porque:
+
+- Trabaja con información actualizada.
+- Evita duplicación de archivos.
+- Reduce el riesgo de desactualización.
+- Favorece la interoperabilidad.
+- Permite mayor reproducibilidad.
+
+---
+
+# Reflexiones Finales
+
+Durante el desarrollo del ejercicio se logró comprender conceptualmente la diferencia entre servicios WMS, WFS y WCS, así como la distinción entre formatos vectoriales y raster. Sin embargo, surgieron dificultades técnicas al intentar descargar un GeoTIFF institucional o conectarse a un servicio WCS colombiano.
+
+Al explorar alternativas, se evidenció que su uso requiere conocimientos adicionales en programación y manejo de librerías en entornos como JavaScript o Python. No fue claro si era necesario instalar estos entornos ni cómo gestionar adecuadamente las librerías geoespaciales para realizar la descarga del raster.
+
+El aprendizaje obtenido fue principalmente más operativo. Se logró visualizar servicios, interpretar formatos y comprender los estándares OGC, pero quedó en evidencia que para ejecutar estos procesos con mayor autonomía se requiere una base técnica más sólida en servicios web geográficos y manejo de librerías especializadas.
