@@ -1,0 +1,90 @@
+---
+title: "Geoportales y Servicios Web en Colombia"
+author: "Gabriela Caro Leon"
+format:
+  html: default
+  pdf: default
+---
+
+# 6. Geoportales y Servicios Web
+
+## Servicios utilizados
+
+Durante la práctica se trabajó con servicios oficiales de entidades colombianas:
+
+- WMS – Parques Nacionales Naturales de Colombia.
+- WFS – DANE.
+- Shapefile descargado para uso local.
+
+El WMS permitió visualización como imagen, mientras que el WFS permitió acceder a geometrías reales y tabla de atributos.
+
+---
+
+## Sistemas de Coordenadas
+
+Se trabajó con:
+
+- WGS84 (EPSG:4326)
+- WGS 84 / Pseudo-Mercator (EPSG:3857)
+- MAGNA-SIRGAS Origen Nacional (EPSG:9377)
+
+QGIS realizó proyección “on-the-fly”, permitiendo visualizar capas con distintos sistemas de referencia simultáneamente.
+
+---
+
+# Cuestionario
+
+## ¿Qué permite edición?
+
+Permiten edición:
+- WFS (si está habilitado).
+- Shapefile.
+
+No permiten edición:
+- WMS.
+- WCS.
+- GeoTIFF.
+
+---
+
+## ¿Qué permite acceso a tabla?
+
+Permiten acceso a tabla:
+- WFS.
+- Shapefile.
+
+Ejemplo del WFS del DANE:
+- COD_DANE
+- NOM_MPIO
+- AREA
+
+---
+
+## ¿Dónde se pudo cambiar simbología?
+
+Fue posible cambiar simbología en:
+- WFS.
+- Shapefile.
+
+No fue posible en:
+- WMS (imagen renderizada por el servidor).
+
+---
+
+## ¿Por qué es mejor WFS que Shapefile?
+
+Porque el WFS:
+- Trabaja con datos actualizados.
+- Evita versiones desactualizadas.
+- Permite interoperabilidad.
+- Favorece reproducibilidad.
+
+---
+
+# Reflexión Final
+
+Durante el ejercicio se comprendieron las diferencias entre WMS, WFS y WCS, así como entre datos vectoriales y raster. Sin embargo, no fue posible descargar un GeoTIFF institucional ni conectar un servicio WCS colombiano.
+
+Al explorar alternativas surgió la dificultad de no comprender cómo instalar ni usar las librerías necesarias en entornos como google earth engine, Python o Jupyter. No fue claro qué herramientas eran realmente necesarias ni cómo configurarlas correctamente.
+
+El ejercicio resultó más operativo, ya que permitió visualizar y entender los formatos, pero evidenció que se requiere una base conceptual y tecnica más sólida en servicios OGC y manejo de librerías geoespaciales para desarrollar este tipo de prácticas con mayor autonomía.

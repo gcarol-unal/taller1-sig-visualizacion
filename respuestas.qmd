@@ -1,0 +1,42 @@
+---
+title: "Respuestas Parte B"
+format: html
+jupyter: python3
+---
+
+# Parte B — Desafío de Exploración
+
+## Código - Modelo Digital de Elevación (SRTM)
+
+```{python}
+import ee
+import geemap
+
+ee.Initialize(project='ee-gcarol-487502')
+
+m = geemap.Map(center=[4.63, -74.08], zoom=10)
+
+srtm = ee.Image("USGS/SRTMGL1_003")
+
+vis_params = {
+    "min": 0,
+    "max": 4000,
+    "palette": ["blue", "green", "yellow", "orange", "red"]
+}
+
+m.addLayer(srtm, vis_params, "Elevación SRTM")
+
+m
+## Preguntas de Análisis
+
+### 1. Facilidad e Intuición
+Geemap fue la librería más intuitiva porque permite crear mapas interactivos fácilmente y visualizar datos sin mucho código.
+
+### 2. Calidad Cartográfica
+Para informes técnicos en PDF, ggplot2 y tmap generan mapas con mejor acabado visual que matplotlib.
+
+### 3. Potencial de la Documentación
+Una funcionalidad avanzada útil es la integración con Google Earth Engine para trabajar con grandes volúmenes de datos satelitales.
+
+### 4. Elección de Herramientas
+En una emergencia ambiental elegiría Geemap porque permite crear rápidamente un visor interactivo web que personal no técnico puede usar fácilmente.
